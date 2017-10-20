@@ -43,5 +43,5 @@ _uf.additional_params_map = {
 }
 add_action('wp_enqueue_scripts','ij_utm_tracker_script');
 function ij_utm_tracker_script() {
-	wp_enqueue_script( 'ij-utm-tracker-js', plugins_url( '/js/utmtracker.min.js', __FILE__ ), null, IJ_UTM_TRACKER_VERSION_NUM, true);
+	wp_enqueue_script( 'ij-utm-tracker-js', plugins_url( '/js/utmtracker.min.js#asyncload', __FILE__ ), null, IJ_UTM_TRACKER_VERSION_NUM, true);
 }
