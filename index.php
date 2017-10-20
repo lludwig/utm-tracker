@@ -13,6 +13,18 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 if (!defined('IJ_UTM_TRACKER_VERSION_NUM'))
 	define('IJ_UTM_TRACKER_VERSION_NUM', '1.0.0');
 
+function add_async_forscript($url)
+{
+    if (strpos($url, '#asyncload')===false)
+        return $url;
+    else if (is_admin())
+        return str_replace('#asyncload', '', $url);
+    else
+        return str_replace('#asyncload', '', $url)."' async='async"; 
+}
+add_filter('clean_url', 'add_async_forscript', 11, 1);
+
+
 add_action('wp_footer', 'ij_utm_tracker', 99);
 function ij_utm_tracker() {
 ?>
@@ -27,6 +39,6 @@ _uf.additional_params_map = {
 	match: "IJMATCH"
 };
 </script>
-<script type="text/javascript" async src="<?php echo plugins_url( 'js/utm-tracker-'.IJ_UTM_TRACKER_VERSION_NUM.'.min.js', __FILE__ ); ?>"></script>
 <?php
+	wp_register_script( 'ij-utm-tracker', plugins_url( 'js/utmtracker.min.js#asyncload', __FILE__ ));
 }
