@@ -25,7 +25,7 @@ function add_async_forscript($url)
 add_filter('clean_url', 'add_async_forscript', 11, 1);
 
 
-add_action('wp_footer', 'ij_utm_tracker', 99);
+add_action('wp_footer', 'ij_utm_tracker', 1);
 function ij_utm_tracker() {
 ?>
 <script type="text/javascript" charset="utf-8">
@@ -40,5 +40,8 @@ _uf.additional_params_map = {
 };
 </script>
 <?php
-	wp_register_script( 'ij-utm-tracker', plugins_url( 'js/utmtracker.min.js#asyncload', __FILE__ ));
+}
+add_action('wp_enqueue_scripts','ij_utm_tracker_script');
+function ij_utm_tracker_script() {
+	wp_enqueue_script( 'ij-utm-tracker-js', plugins_url( '/js/utmtracker.min.js', __FILE__ ), null, IJ_UTM_TRACKER_VERSION_NUM, true);
 }
