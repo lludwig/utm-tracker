@@ -16,6 +16,7 @@ UtmCookie = (function() {
     }
     if (this.utmPresentInUrl()) {
       this.writeUtmCookieFromParams();
+      this.writeAdditionalParams();
     }
     return;
   }

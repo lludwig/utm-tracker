@@ -27,6 +27,6 @@ _uf.additional_params_map = {
 	match: "IJMATCH"
 };
 </script>
-<script async src="<?php echo plugins_url( 'js/utm-tracker-'.IJ_UTM_TRACKER_VERSION_NUM.'.js', __FILE__ ); ?>" async></script>
+<script async src="<?php echo plugins_url( 'js/utm-tracker-'.IJ_UTM_TRACKER_VERSION_NUM.'.min.js', __FILE__ ); ?>" async></script>
 <?php
 }
