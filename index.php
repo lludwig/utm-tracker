@@ -36,13 +36,6 @@ function utm_tracker() {
 <script type="text/javascript" charset="utf-8">
 var _uf = _uf || {};
 _uf.domain = ".<?php echo utm_urlToDomain(get_site_url()); ?>";
-_uf.additional_params_map = {
-	gclid: "IGCLID",
-	adpos: "IADPOS",
-	place: "IPLACE",
-	net: "INET",
-	match: "IMATCH"
-};
 </script>
 <?php
 }
