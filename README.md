@@ -3,7 +3,7 @@
 ## What does it do?
 When passing UTM parameters, GCLID, and other parameters to your website it stores this info via a website cookie for 30 days. It can then be inserted into any lead generation form on your website. It adds this extra information as hidden fields on your HTML form.
 
-This is a fork of script utm_form https://github.com/medius/utm_form, and made into a Wordpress Plugin. It has been modified to already include `GCLID`, `adpos`, `net` and `match` variables.
+This is a fork of script utm_form https://github.com/medius/utm_form, and made into a Wordpress Plugin. It has been modified to already include `gclid`, `adpos`, `net` and `match` variables to better help track Google Ads.
 
 ## Why do I need it?
 Google created UTM parameters to help track referrals so you know the exact source of your website traffic.
