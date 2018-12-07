@@ -66,10 +66,11 @@ Once the script is added, your form will look like this after the page is loaded
 
 ```html
 <form action="//terminusapp.us6.list-manage.com/subscribe/" method="post">
-  <input type="hidden" name="USOURCE" value="twitter">
-  <input type="hidden" name="UMEDIUM" value="social">
-  <input type="hidden" name="UCAMPAIGN" value="awareness">
-
+  <input type="hidden" name="USOURCE" value="facebook">
+  <input type="hidden" name="UMEDIUM" value="cpc">
+  <input type="hidden" name="UCAMPAIGN" value="myad">
+  <input type="hidden" name="UCONTENT" value="version2">
+  
   <label for="mce-email">Email Address</label>
   <input type="email" value="" name="email" id="mce-email">
   <input type="submit" value="Subscribe" name="subscribe">
