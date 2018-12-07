@@ -8,19 +8,18 @@ This is a fork of script utm_form https://github.com/medius/utm_form, and made i
 ## Why do I need it?
 Google created UTM parameters to help track referrals so you know the exact source of your website traffic.
 
-If you want to know where each email list subscriber or lead is coming from, use this script to help with that. This
+If you want to know where each email list subscriber is coming from, use this script to help with that. This
 is different from analytics tools where you know this information in aggregate.
 
-e.g. You'll know that bob@example.com originally came from Twitter, landed on page www.yoursite.com/promotion and submitted his info via the form on that page.
+e.g. You'll know that bob@example.com originally came from Twitter, landed on page www.yoursite.com/promotion and submitted his info via the form on that page. You will also know if the source of the traffic came from an ad you created with Google Ads. So you can attribute the source of traffic or conversions and know how effective your ad campaigns have been.
 
 **Information it adds to your forms:**
 * utm_source - The platform (or vendor) where the traffic originates, like Facebook or your email newsletter.
-* utm_meidum - You can use this to identify the medium like Cost Per Click (CPC), social media, affiliate or QR code.
+* utm_medium - You can use this to identify the medium like Cost Per Click (CPC), social media, affiliate or QR code.
 * utm_campaign - This is just to identify your campaign. Like your website or a specific product promotion.
 * utm_content - If you’re A/B testing ads, then this is a useful metric that passes details about your ad. You can also use it to differentiate links that point to the same URL.
 
-* Campaign Term – You’ll use this mainly for tracking your keywords during a paid AdWords campaign. You can also use it in your display ad campaigns to identify aspects of your audience.
-5 UTM parameters - Any UTM parameters in the URL that a visitor used to come to your website will be added to the form
+* utm_term – You’ll use this mainly for tracking your keywords during a paid Google Ads campaign. You can also use it in your display ad campaigns to identify aspects of your audience.
 * GCLID - Google creates a unique id that is passed when using a visitor comes from an ad on their service.
 * adpos - The position of the Google ad on the page.
 * net - The network source of the traffic from Google.
@@ -67,6 +66,8 @@ Once the script is added, your form will look like this after the page is loaded
   <input type="submit" value="Subscribe" name="subscribe">
 </form>
 ```
+
+This information is added automatically to the HTML form and no additional coding is needed.
 
 When someone submits the form, all the extra information is also sent along with the email address.
 
