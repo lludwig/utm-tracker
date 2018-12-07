@@ -13,6 +13,8 @@ is different from analytics tools where you know this information in aggregate.
 
 ** Example: **
 
+You create a Facebook ad, add UTM parameters and send them to your home page.
+
 https://www.yoursite.com/?utm_source=facebook&utm_medium=cpc&utm_campaign=myad&utm_content=version2
 
 The user Bob visits your contact form at https://www.yoursite.com/contact/ and submits his email address bob@example.com to your MailChimp mailing list.
