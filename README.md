@@ -11,7 +11,7 @@ Google created UTM parameters to help track referrals so you know the exact sour
 If you want to know where each email list subscriber is coming from, use this script to help with that. This
 is different from analytics tools where you know this information in aggregate.
 
-** Example: **
+**Example:**
 
 You create a Facebook ad, add UTM parameters and send them to your home page.
 
@@ -23,7 +23,7 @@ From the information stored in MailChimp you'll know that Bob came from a paid F
 
 So you can attribute the source of traffic or conversions and know how effective your ad campaigns have been.
 
-**Information it adds to your forms:**
+**The Information it adds to your forms:**
 * utm_source - The platform (or vendor) where the traffic originates, like Facebook or your email newsletter.
 * utm_medium - You can use this to identify the medium like Cost Per Click (CPC), social media, affiliate or QR code.
 * utm_campaign - This is just to identify your campaign. Like your website or a specific product promotion.
