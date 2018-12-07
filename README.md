@@ -11,14 +11,21 @@ Google created UTM parameters to help track referrals so you know the exact sour
 If you want to know where each email list subscriber is coming from, use this script to help with that. This
 is different from analytics tools where you know this information in aggregate.
 
-e.g. You'll know that bob@example.com originally came from Twitter, landed on page www.yoursite.com/promotion and submitted his info via the form on that page. You will also know if the source of the traffic came from an ad you created with Google Ads. So you can attribute the source of traffic or conversions and know how effective your ad campaigns have been.
+** Example: **
+
+https://www.yoursite.com/?utm_source=facebook&utm_medium=cpc&utm_campaign=myad&utm_content=version2
+
+The user Bob visits your contact form at https://www.yoursite.com/contact/ and submits his email address bob@example.com to your MailChimp mailing list.
+
+From the information stored in MailChimp you'll know that Bob came from a paid Facebook ad with the campaign "myad" and was the second version of your ad.
+
+So you can attribute the source of traffic or conversions and know how effective your ad campaigns have been.
 
 **Information it adds to your forms:**
 * utm_source - The platform (or vendor) where the traffic originates, like Facebook or your email newsletter.
 * utm_medium - You can use this to identify the medium like Cost Per Click (CPC), social media, affiliate or QR code.
 * utm_campaign - This is just to identify your campaign. Like your website or a specific product promotion.
 * utm_content - If you’re A/B testing ads, then this is a useful metric that passes details about your ad. You can also use it to differentiate links that point to the same URL.
-
 * utm_term – You’ll use this mainly for tracking your keywords during a paid Google Ads campaign. You can also use it in your display ad campaigns to identify aspects of your audience.
 * GCLID - Google creates a unique id that is passed when using a visitor comes from an ad on their service.
 * adpos - The position of the Google ad on the page.
@@ -74,7 +81,7 @@ When someone submits the form, all the extra information is also sent along with
 You'll need to make sure that your form can accept these values. If it is a Mailchimp form, configure it to
 accept these fields. Same for ConstantContact, CampaignMonitor, Hubspot or any other service.
 
-## More Questions?
+## Questions?
 #### What happens if someone visits a bunch of pages on my website/blog before filling the form?
 It doesn't matter. As soon as they land on your website, the script saves the information in a cookie. This
 cookie is valid for 30 days. It adds this information to your form from the saved cookie.
