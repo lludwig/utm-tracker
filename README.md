@@ -39,7 +39,7 @@ So you can attribute the source of traffic or conversions and know how effective
 1. Install and activate the Wordpress plugin on your website.
 
 2. You need to make your forms accept the new fields. Based on the information available for a visitor, the fields added
-  to your form will be,
+  to your form will be:
 
   * USOURCE - Value of *utm_source* if present
   * UMEDIUM - Value of *utm_medium* if present
