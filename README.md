@@ -1,9 +1,9 @@
 # UTM Tracker Wordpress Plugin
 
 ## What does it do?
-It adds UTM parameters, GCLID and other information, and stores via website cookie for 30 days. It can then be inserted into any lead generation form on your website. It adds this extra information as hidden fields on a form.
+When passing UTM parameters, GCLID, and other parameters to your website it stores this info via a website cookie for 30 days. It can then be inserted into any lead generation form on your website. It adds this extra information as hidden fields on your HTML form.
 
-This is a fork of script utm_form https://github.com/medius/utm_form, made into a Wordpress Plugin and modifed to add GCLID, adpos, net and match variables.
+This is a fork of script utm_form https://github.com/medius/utm_form, and made into a Wordpress Plugin. It has been modified to already include `GCLID`, `adpos`, `net` and `match` variables.
 
 ## Why do I need it?
 Google created UTM parameters to help track referrals so you know the exact source of your website traffic.
