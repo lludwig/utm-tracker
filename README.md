@@ -2,7 +2,7 @@
 It adds UTM parameters, GCLID and other information to a website cookie and to any lead generation form. It adds this extra information
 as hidden fields on a form.
 
-This is a fork of script utm_form https://github.com/medius/utm_form and made into a Wordpress Plugin and modifed to add GCLID, adpos, net and match variables.
+This is a fork of script utm_form https://github.com/medius/utm_form, made into a Wordpress Plugin and modifed to add GCLID, adpos, net and match variables.
 
 ## Why do I need it?
 Google created UTM parameters to help track referrals so you know the exact source of your website traffic.
