@@ -1,10 +1,12 @@
 ## What does it do?
-It adds UTM, GCLID and other information to a website cookie and to any lead generation form. It adds this extra information
+It adds UTM parameters, GCLID and other information to a website cookie and to any lead generation form. It adds this extra information
 as hidden fields on a form.
 
 This is a fork of script utm_form https://github.com/medius/utm_form and made into a Wordpress Plugin and modifed to add GCLID, adpos, net and match variables.
 
 ## Why do I need it?
+Google created UTM parameters to help track referrals so you know the exact source of your website traffic.
+
 If you want to know where each email list subscriber or lead is coming from, use this script to help with that. This
 is different from analytics tools where you know this information in aggregate.
 
@@ -13,11 +15,10 @@ visited your website 3 times before giving you his email address.
 
 **Information it adds to your forms:**
 * 5 UTM parameters - Any UTM parameters in the URL that a visitor used to come to your website will be added to the form
-* Initial Referrer - The webpage where the visitor came from for the first time
-* Last Referrer - The webpage where the visitor came from most recently
-* Initial Landing page - URL of the page on your website where the visitor landed the very first time
-* Number of visits - The number of times the visitor came to your website before filling your form
-* Additional parameters defined in `additional_params_map`
+* GCLID - Google and Bing create a unique id that is passed when using a visitor comes from an ad on their service.
+* adpos - The position of the Google ad on the page.
+* net - The network source of the traffic from Google.
+* match - The keyword matching from the ad displayed on Google.
 
 ## How do I use it?
 
@@ -70,8 +71,4 @@ accept these fields. Same for ConstantContact, CampaignMonitor, Hubspot or any o
 ## More Questions?
 #### What happens if someone visits a bunch of pages on my website/blog before filling the form?
 It doesn't matter. As soon as they land on your website, the script saves the information in a cookie. This
-cookie is valid for 365 days. It adds this information to your form from the saved cookie.
-
-#### What's the session length for?
-It's used to count the number of visits. If someone comes to your website after the session has expired, it will be counted
-as a new visit.
+cookie is valid for 30 days. It adds this information to your form from the saved cookie.
