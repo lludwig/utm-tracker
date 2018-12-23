@@ -33,3 +33,6 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 // remove these options since we are uninstalled
 unregister_setting('utm-tracker', 'utm-tracker-domain-name');
 unregister_setting('utm-tracker', 'utm-tracker-ttl');
+// delete the options from the database
+delete_option('utm-tracker-domain-name');
+delete_option('utm-tracker-ttl');
