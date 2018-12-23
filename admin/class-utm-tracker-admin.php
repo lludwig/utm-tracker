@@ -21,17 +21,21 @@
  * @author     Ludwig Media <plugin@larryludwig.com>
  */
 class UTM_Tracker_Admin {
-
 	public $settings_slug = 'utm-tracker';
 
 	public function __construct() {
 		$this->init();
+		$this->default_domain_name = $this->urlToDomain(get_site_url());
 	}
 
 	public function init() {
-		register_setting( 'utm-tracker', 'utm-tracker-domain-name', array ('type' => 'string', 'description' => 'If different than the default domain name used in confirmation. Useful when hosting a subdomain.', 'default' => 
-				$this->urlToDomain(get_site_url())));
-		register_setting( 'utm-tracker', 'utm-tracker-ttl', array ('type' => 'number', 'description' => 'How long should the cookie be active in days.', 'default' => 30 ) );
+		// create and set defaults for the options
+		add_option( 'utm-tracker-domain-name' , $this->urlToDomain(get_site_url()));
+		add_option( 'utm-tracker-ttl' , 30 );
+
+		// register the option types
+		register_setting( 'utm-tracker', 'utm-tracker-domain-name', array ('type' => 'string', 'description' => 'If different than the default domain name used in confirmation. Useful when hosting a subdomain.' ));
+		register_setting( 'utm-tracker', 'utm-tracker-ttl', array ('type' => 'number', 'description' => 'How long should the cookie be active in days.' ) );
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'settings' ) );
@@ -54,7 +58,7 @@ class UTM_Tracker_Admin {
         }
 
 	public function settings_section_description(){
-		echo wpautop( "For more documentation on using this plugin please visit our <a href=\"https://larryludwig.com/plugins/utm-tracker/?utm_source=wpplugin&utm_medium=link&utm_campaign=settings\" target=\"_blank\">online manual</a>." );
+		echo wpautop( "<span style=\"font-size: 18px;\">For more documentation on using this plugin, please visit our <a href=\"https://larryludwig.com/plugins/utm-tracker/?utm_source=wpplugin&utm_medium=link&utm_campaign=settings\" target=\"_blank\">online manual</a>.</span>" );
 	}
 
 	public function settings_page() {
@@ -137,5 +141,4 @@ class UTM_Tracker_Admin {
 
 }
 
-if( is_admin() )
-	$utm_tracker_admin = new UTM_Tracker_Admin();
+$utm_tracker_admin = new UTM_Tracker_Admin();
