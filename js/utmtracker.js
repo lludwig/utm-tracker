@@ -8,15 +8,18 @@ UtmCookie = (function() {
     this._cookieNamePrefix = '_uc_';
     this._domain = options.domain;
     this._sessionLength = options.sessionLength || 1;
-    this._cookieExpiryDays = options.cookieExpiryDays || 30;
+    this._cookieExpiryDays = options.cookieExpiryDays || 365;
     this._additionalParams = options.additionalParams || [];
     this._utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    this.writeInitialReferrer();
+    this.writeLastReferrer();
+    this.writeInitialLandingPageUrl();
+    this.setCurrentSession();
     if (this.additionalParamsPresentInUrl()) {
       this.writeAdditionalParams();
     }
     if (this.utmPresentInUrl()) {
       this.writeUtmCookieFromParams();
-      this.writeAdditionalParams();
     }
     return;
   }
@@ -127,6 +130,89 @@ UtmCookie = (function() {
     }
   };
 
+  UtmCookie.prototype._sameDomainReferrer = function(referrer) {
+    var hostname;
+    hostname = document.location.hostname;
+    return referrer.indexOf(this._domain) > -1 || referrer.indexOf(hostname) > -1;
+  };
+
+  UtmCookie.prototype._isInvalidReferrer = function(referrer) {
+    return referrer === '' || referrer === void 0;
+  };
+
+  UtmCookie.prototype.writeInitialReferrer = function() {
+    var value;
+    value = document.referrer;
+    if (this._isInvalidReferrer(value)) {
+      value = 'direct';
+    }
+    this.writeCookieOnce('referrer', value);
+  };
+
+  UtmCookie.prototype.writeLastReferrer = function() {
+    var value;
+    value = document.referrer;
+    if (!this._sameDomainReferrer(value)) {
+      if (this._isInvalidReferrer(value)) {
+        value = 'direct';
+      }
+      this.writeCookie('last_referrer', value);
+    }
+  };
+
+  UtmCookie.prototype.writeInitialLandingPageUrl = function() {
+    var value;
+    value = this.cleanUrl();
+    if (value) {
+      this.writeCookieOnce('initial_landing_page', value);
+    }
+  };
+
+  UtmCookie.prototype.initialReferrer = function() {
+    return this.readCookie('referrer');
+  };
+
+  UtmCookie.prototype.lastReferrer = function() {
+    return this.readCookie('last_referrer');
+  };
+
+  UtmCookie.prototype.initialLandingPageUrl = function() {
+    return this.readCookie('initial_landing_page');
+  };
+
+  UtmCookie.prototype.incrementVisitCount = function() {
+    var cookieName, existingValue, newValue;
+    cookieName = 'visits';
+    existingValue = parseInt(this.readCookie(cookieName), 10);
+    newValue = 1;
+    if (isNaN(existingValue)) {
+      newValue = 1;
+    } else {
+      newValue = existingValue + 1;
+    }
+    this.writeCookie(cookieName, newValue);
+  };
+
+  UtmCookie.prototype.visits = function() {
+    return this.readCookie('visits');
+  };
+
+  UtmCookie.prototype.setCurrentSession = function() {
+    var cookieName, existingValue;
+    cookieName = 'current_session';
+    existingValue = this.readCookie(cookieName);
+    if (!existingValue) {
+      this.createCookie(cookieName, 'true', this._sessionLength / 24, null, this._domain);
+      this.incrementVisitCount();
+    }
+  };
+
+  UtmCookie.prototype.cleanUrl = function() {
+    var cleanSearch;
+    cleanSearch = window.location.search.replace(/utm_[^&]+&?/g, '').replace(/&$/, '').replace(/^\?$/, '');
+    return window.location.origin + window.location.pathname + cleanSearch + window.location.hash;
+  };
+
   return UtmCookie;
 
 })();
@@ -144,7 +230,11 @@ UtmForm = (function() {
     this._utmParamsMap.utm_campaign = options.utm_campaign_field || 'UCAMPAIGN';
     this._utmParamsMap.utm_content = options.utm_content_field || 'UCONTENT';
     this._utmParamsMap.utm_term = options.utm_term_field || 'UTERM';
-    this._additionalParamsMap = options.additional_params_map || { gclid: 'IGCLID', adpos: 'IADPOS', place: 'IPLACE', net: 'INET', match: 'IMATCH' };
+    this._additionalParamsMap = options.additional_params_map || {};
+    this._initialReferrerField = options.initial_referrer_field || 'IREFERRER';
+    this._lastReferrerField = options.last_referrer_field || 'LREFERRER';
+    this._initialLandingPageField = options.initial_landing_page_field || 'ILANDPAGE';
+    this._visitsField = options.visits_field || 'VISITS';
     this._addToForm = options.add_to_form || 'all';
     this._formQuerySelector = options.form_query_selector || 'form';
     this.utmCookie = new UtmCookie({
@@ -187,6 +277,10 @@ UtmForm = (function() {
         fieldName = ref1[param];
         this.addFormElem(form, fieldName, this.utmCookie.readCookie(param));
       }
+      this.addFormElem(form, this._initialReferrerField, this.utmCookie.initialReferrer());
+      this.addFormElem(form, this._lastReferrerField, this.utmCookie.lastReferrer());
+      this.addFormElem(form, this._initialLandingPageField, this.utmCookie.initialLandingPageUrl());
+      this.addFormElem(form, this._visitsField, this.utmCookie.visits());
     }
   };
 
