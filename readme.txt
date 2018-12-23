@@ -38,7 +38,7 @@ It automatically works with most HTML form submissions such as:
 
 No code changes is needed with your website. Just install this plugin and go. You do need to add support of passing these fields to the service used.
 
-[Read Full Documentation](https://larryludwig.com/plugins/utm-tracker/)
+[Read Full Documentation](https://larryludwig.com/plugins/utm-tracker/?utm_source=plugin&utm_medium=organic&utm_campaign=page)
 
 == Upgrade Notice ==
 None
@@ -64,4 +64,4 @@ None
 = 1.0.1 =
  * First version released to the Wordpress community.
 
-The full changelog is [available here](https://larryludwig.com/plugins/utm-tracker/).
+The full changelog is [available here](https://larryludwig.com/plugins/utm-tracker/?utm_source=plugin&utm_medium=organic&utm_campaign=page).
