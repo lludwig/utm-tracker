@@ -1,7 +1,7 @@
 <?php 
 /**
  * Plugin Name: UTM Tracker
- * Description: Tracks UTM codes
+ * Description: Tracks UTM parameters and automatically inserts into your website forms.
  * Version:     1.0.2
  * Author:      Ludwig Media
  * Author URI:  https://larryludwig.com/
