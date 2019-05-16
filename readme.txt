@@ -3,7 +3,7 @@ Contributors: ludwigmedia
 Donate link: http://lud.live/utmtrackerdonate
 Tags: utm parameters, referrer tracking, utm, gclid, utm tracking, analytics
 Requires at least: 4.6
-Tested up to: 5.0
+Tested up to: 5.1
 Stable tag: 4.3
 Requires PHP: 5.2.4
 License: GPLv2 or later
