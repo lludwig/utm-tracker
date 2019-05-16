@@ -3,7 +3,7 @@ Contributors: ludwigmedia
 Donate link: http://lud.live/utmtrackerdonate
 Tags: utm parameters, referrer tracking, utm, gclid, utm tracking, analytics
 Requires at least: 4.6
-Tested up to: 5.1
+Tested up to: 5.2
 Stable tag: 4.3
 Requires PHP: 5.2.4
 License: GPLv2 or later
@@ -58,6 +58,8 @@ I recommend reading [this tutorial](https://blog.hootsuite.com/how-to-use-utm-pa
 None
 
 == Changelog ==
+= 1.0.3 =
+ * fixed bug where documentation and code did not match variables passed.
 = 1.0.2 =
  * Added latest version utm_form 1.0.4
  * Added options for the domain name (default .tld) and TTL of cookie (default 30 days)
