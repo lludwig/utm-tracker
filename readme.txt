@@ -3,7 +3,7 @@ Contributors: ludwigmedia
 Donate link: http://lud.live/utmtrackerdonate
 Tags: utm parameters, referrer tracking, utm, gclid, utm tracking, analytics
 Requires at least: 4.6
-Tested up to: 5.2
+Tested up to: 5.8
 Stable tag: 4.3
 Requires PHP: 5.2.4
 License: GPLv2 or later
@@ -25,7 +25,7 @@ It can then be inserted into any lead generation form on your website. It automa
 == Works With ==
 It automatically works with most HTML form submissions such as:
 * Contact Form 7
-* Gravity Forms
+* WP Form
 * AWeber
 * Mailchimp
 * Salesforce CRM
@@ -58,6 +58,14 @@ I recommend reading [this tutorial](https://blog.hootsuite.com/how-to-use-utm-pa
 None
 
 == Changelog ==
+= 1.3.1 =
+ * labeled as 5.8 WP 'safe'
+= 1.3.0 =
+ * Added msclkid and IMSCLKID for Microsoft Ads clicks
+= 1.2.0 =
+ * Added latest version of utm_form 1.2.0
+ * Added support for fbclid and IFBCLID for Facebook ads and organic Facebook clicks
+ * Removed adpos variable and IADPOS since Google Ads no longer supports this information
 = 1.0.3 =
  * fixed bug where documentation and code did not match variables passed.
 = 1.0.2 =

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: UTM Tracker
  * Description: Tracks UTM parameters and automatically inserts into your website forms.
- * Version:     1.0.3
+ * Version:     1.3.1
  * Author:      Ludwig Media
  * Author URI:  https://larryludwig.com/
  * License:     GNU General Public License v3 or later
@@ -12,7 +12,7 @@
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
 if (!defined('UTM_TRACKER_VERSION_NUM'))
-	define('UTM_TRACKER_VERSION_NUM', '1.0.3');
+	define('UTM_TRACKER_VERSION_NUM', '1.2.0');
 
 if ( ! defined( 'UTM_TRACKER_PATH' ) ) {
         define( 'UTM_TRACKER_PATH', plugin_dir_path( __FILE__ ) );
@@ -55,7 +55,8 @@ _uf.domain = "<?php echo get_option('utm-tracker-domain-name'); ?>";
 _uf.cookieExpiryDays = <?php echo get_option('utm-tracker-ttl'); ?>;
 _uf.additional_params_map = {
 	gclid: "IGCLID",
-	adpos: "IADPOS",
+	msclkid: "IMSCLKID",
+	fbclid: "IFBCLID",
 	place: "IPLACE",
 	net: "INET",
 	match: "IMATCH"
